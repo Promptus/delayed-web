@@ -8,6 +8,7 @@
   <thead>
     <tr>
       <th>ID</th>
+      <th>Type</th>
       <th>Status</th>
       <th>Created At</th>
       <th>Run At</th>
@@ -21,6 +22,9 @@
       <% jobs.each do |job| %>
         <tr>
           <td><%= link_to "##{job.id}", job_path(job) %></td>
+          <td>
+            <%= job.respond_to?(:payload_object) ? job.payload_object.class.name.demodulize : "N/A" %>
+          </td>
           <td>
             <span class="<%= status_dom_class(job.status) %>">
               <%= job.status.capitalize %>

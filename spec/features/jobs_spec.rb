@@ -21,4 +21,10 @@ feature 'Jobs' do
 
     expect(page).to have_text('Jobs')
   end
+
+  scenario 'User views list' do
+    visit '/jobs'
+
+    expect(page).to have_text('N/A')
+  end
 end
